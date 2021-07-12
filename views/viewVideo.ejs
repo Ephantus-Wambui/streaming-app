@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('layouts/header'); -%>
+
+<body>
+
+  <%- include('layouts/navbar')-%>
+
+      <main>
+
+        <div class="container video">
+        
+          <video controls autoplay>
+            <source src="<%= youtube.video %>" type="video/mp4">
+          </video>
+
+          <h1><%= youtube.title %></h1>
+          <p><%= youtube.datePosted %></p>
+        
+        </div>
+
+      </main>
+    
+</body>
+
+</html>

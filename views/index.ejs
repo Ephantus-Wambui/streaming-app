@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('layouts/header'); -%>
+
+<body>
+
+    <%- include('layouts/navbar')-%>
+
+      <main>
+
+        <div class="container">
+
+        <% for (var i = 0; i < youtube.length; i++) {%>
+
+            <p><a href="/viewVideo/<%= youtube[i]._id%>"><%= youtube[i].title %></a></p>
+
+        <% } %>
+
+        </div>
+
+      </main>
+    
+</body>
+
+</html>
