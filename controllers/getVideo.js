@@ -1,7 +1,7 @@
 const Youtube =require('../models/Youtube')
 
-module.exports = async(req, res) => {
-    const youtube = await Youtube.findById(req.params.id);
+module.exports = async (req, res) => {
+    const youtube = await Youtube.findOne({ slug: req.params.slug })
     console.log(youtube)
     res.render('viewVideo',{
         youtube

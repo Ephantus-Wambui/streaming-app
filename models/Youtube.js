@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const slugify = require('slugify')
 const Schema = mongoose.Schema;
 
 const YoutubeSchema = new Schema({
@@ -8,7 +9,21 @@ const YoutubeSchema = new Schema({
     default: new Date(),
   },
   video: String,
+  slug: {
+    type: String,
+    required: true,
+    unique: true
+  }
 });
 
+YoutubeSchema.pre('validate', function (next) {
+  if (this.title) {
+    this.slug = slugify(this.title, { lower: true, strict: true })
+  }
+  
+  next()
+})
+
 const Youtube = mongoose.model('Youtube',YoutubeSchema)
+
 module.exports = Youtube

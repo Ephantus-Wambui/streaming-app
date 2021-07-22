@@ -4,7 +4,6 @@
   "description": "Youtube clone",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
     "start": "node server.js"
   },
@@ -19,6 +18,8 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.2.1",
     "mongoose": "^5.12.14",
+    "slug": "^5.1.0",
+    "slugify": "^1.5.3",
     "video-thumbnail-generator": "^1.1.3"
   }
 }

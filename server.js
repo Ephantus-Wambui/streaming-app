@@ -3,7 +3,7 @@ const app = express()
 
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost/clone_database', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+mongoose.connect('mongodb://localhost/youtubeClone', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
 
 const ejs = require('ejs')
 app.set('view engine', 'ejs')
@@ -35,7 +35,7 @@ const getVideoController = require('./controllers/getVideo')
 app.get('/', homePageController)
 app.get('/uploadVideo', uploadVideoController)
 app.post('/post/video', storeVideoController)
-app.get('/viewVideo/:id', getVideoController)
+app.get('/viewVideo/:slug', getVideoController)
 
 const PORT = process.env.PORT || 3000
 
