@@ -1,3 +1,5 @@
 module.exports = (req, res) => {
-    res.render('uploadVideo')
+    res.render('uploadVideo',{
+        uploadVideo: true,
+    })
 }
