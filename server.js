@@ -36,9 +36,10 @@ app.get('/', homePageController)
 app.get('/uploadVideo', uploadVideoController)
 app.post('/post/video', storeVideoController)
 app.get('/viewVideo/:slug', getVideoController)
+app.use((req, res) => res.render('notFound'))
 
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
-    console.log(`Server listening on ${PORT}`)
+    console.log(`Server listening on port ${PORT}`)
 })
