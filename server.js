@@ -31,11 +31,15 @@ const homePageController = require('./controllers/homePage')
 const uploadVideoController = require('./controllers/uploadVideo')
 const storeVideoController = require('./controllers/storeVideo')
 const getVideoController = require('./controllers/getVideo')
+const signUpController = require('./controllers/signUp')
+const userSignUpController = require('./controllers/userSignUp')
 
 app.get('/', homePageController)
 app.get('/uploadVideo', uploadVideoController)
 app.post('/post/video', storeVideoController)
 app.get('/viewVideo/:slug', getVideoController)
+app.get('/signUp', signUpController)
+app.post('/auth/signup', userSignUpController)
 app.use((req, res) => res.render('notFound'))
 
 const PORT = process.env.PORT || 3000
