@@ -1,5 +1,8 @@
 module.exports = (req, res) => {
-    res.render('uploadVideo',{
-        uploadVideo: true,
-    })
+    if(req.session.userId) {
+            res.render('uploadVideo',{
+            uploadVideo: true,
+        })
+    }
+    res.redirect('/login')
 }

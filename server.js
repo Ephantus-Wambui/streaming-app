@@ -1,4 +1,5 @@
 const express = require('express')
+const MongoStore = require('connect-mongo')
 const app = express()
 
 const mongoose = require('mongoose')
@@ -15,6 +16,16 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 const fileUpload = require('express-fileupload')
 app.use(fileUpload())
+
+const expressSession = require('express-session')
+
+app.use(expressSession({
+    secret: 'keyboard cat',
+    proxy: true,
+    resave: true,
+    saveUninitialized: true,
+    store: MongoStore.create({ mongoUrl: 'mongodb://localhost/youtubeClone' })
+}))
 
 // logging middleware
 
@@ -33,6 +44,8 @@ const storeVideoController = require('./controllers/storeVideo')
 const getVideoController = require('./controllers/getVideo')
 const signUpController = require('./controllers/signUp')
 const userSignUpController = require('./controllers/userSignUp')
+const loginController = require('./controllers/login')
+const loginUserController = require('./controllers/loginUser')
 
 app.get('/', homePageController)
 app.get('/uploadVideo', uploadVideoController)
@@ -40,6 +53,8 @@ app.post('/post/video', storeVideoController)
 app.get('/viewVideo/:slug', getVideoController)
 app.get('/signUp', signUpController)
 app.post('/auth/signup', userSignUpController)
+app.get('/login', loginController)
+app.post('/auth/login', loginUserController)
 app.use((req, res) => res.render('notFound'))
 
 const PORT = process.env.PORT || 3000
