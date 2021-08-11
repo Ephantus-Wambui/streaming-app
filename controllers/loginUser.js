@@ -2,23 +2,21 @@ const bcrypt = require('bcrypt')
 const User = require('../models/Users')
 
 module.exports = (req, res) => {
-    const { email, password } = req.body;
+    const { email, pwd } = req.body;
 
     User.findOne({email:email}, (error,user) => {
         if (user) {
-            bcrypt.compare(password, user.password, (error,same)=>{
+            bcrypt.compare(pwd, user.pwd, (error,same)=>{
                 if(same) {
-                    req.session.userId = user._id
                     res.redirect('/')
                 }
                 else {
-                    return res.redirect('/login')
+                    res.redirect('/auth/login')
                 }
             })
         }
         else {
-            console.log(error)
-            res.redirect('/login')
+            res.redirect('/auth/login')
         }
     })
 }

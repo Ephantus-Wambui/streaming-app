@@ -1,3 +1,5 @@
 module.exports = (req, res) => {
-    res.render('signUp')
+    res.render('signUp',{
+        signUp: true
+    })
 }
