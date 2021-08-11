@@ -6,19 +6,32 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
+          <% if(loggedIn) { %>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/uploadVideo">Upload Video</a>
-          </li>
+              <a class="nav-link active" aria-current="page" href="/uploadVideo">Upload Video</a>
+            </li>              
+            <% } %>
         </ul>
       </div>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
+          <% if(loggedIn) { %>
+          <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/auth/logout">Log Out</a>
+            </li>              
+            <% } %>
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <% if(!loggedIn) { %>
           <li class="nav-item mx-5">
             <a class="nav-link active" aria-current="page" href="/auth/login">Login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/auth/signUp">Sign Up</a>
           </li>
+          <% } %>
         </ul>
       </div>
     </div>

@@ -38,6 +38,13 @@ app.use( (req, res, next) => {
     next();
 });
 
+global.loggedIn = null;
+
+app.use("*", (req, res, next) => {
+    loggedIn = req.session.userId;
+    next();
+});
+
 const homePageController = require('./controllers/homePage')
 const uploadVideoController = require('./controllers/uploadVideo')
 const storeVideoController = require('./controllers/storeVideo')
@@ -46,15 +53,19 @@ const signUpController = require('./controllers/signUp')
 const storeUserController = require('./controllers/storeUser')
 const loginController = require('./controllers/login')
 const loginUserController = require('./controllers/loginUser')
+const authMiddleware = require('./middleware/authMiddleware')
+const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware')
+const logoutController = require('./controllers/logout')
 
 app.get('/', homePageController)
-app.get('/uploadVideo', uploadVideoController)
-app.post('/post/video', storeVideoController)
+app.get('/uploadVideo', authMiddleware, uploadVideoController)
+app.post('/post/video', authMiddleware, storeVideoController)
 app.get('/viewVideo/:slug', getVideoController)
-app.get('/auth/signUp', signUpController)
-app.post('/user/signup', storeUserController)
-app.get('/auth/login', loginController)
-app.post('/user/login', loginUserController)
+app.get('/auth/signUp', redirectIfAuthenticatedMiddleware, signUpController)
+app.post('/user/signup', redirectIfAuthenticatedMiddleware, storeUserController)
+app.get('/auth/login', redirectIfAuthenticatedMiddleware, loginController)
+app.post('/user/login', redirectIfAuthenticatedMiddleware, loginUserController)
+app.get('/auth/logout', logoutController)
 app.use((req, res) => res.render('notFound'))
 
 const PORT = process.env.PORT || 3000
