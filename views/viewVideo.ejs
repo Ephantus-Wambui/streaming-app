@@ -20,6 +20,16 @@
         
         </div>
 
+        <div class="container">
+
+          <% for (var i = 0; i < youtube.length; i++) {%>
+  
+              <p><a href="/viewVideo/<%= youtube[i].slug%>"><%= youtube[i].title %></a></p>
+  
+          <% } %>
+  
+          </div>
+
       </main>
     
 </body>

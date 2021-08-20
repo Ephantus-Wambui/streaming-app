@@ -46,6 +46,7 @@ app.use("*", (req, res, next) => {
 });
 
 const homePageController = require('./controllers/homePage')
+const searchController = require('./controllers/search')
 const uploadVideoController = require('./controllers/uploadVideo')
 const storeVideoController = require('./controllers/storeVideo')
 const getVideoController = require('./controllers/getVideo')
@@ -58,6 +59,7 @@ const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthen
 const logoutController = require('./controllers/logout')
 
 app.get('/', homePageController)
+app.post('/search', searchController)
 app.get('/uploadVideo', authMiddleware, uploadVideoController)
 app.post('/post/video', authMiddleware, storeVideoController)
 app.get('/viewVideo/:slug', getVideoController)
