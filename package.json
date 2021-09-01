@@ -21,6 +21,7 @@
     "express-fileupload": "^1.2.1",
     "express-session": "^1.17.2",
     "mongoose": "^5.12.14",
+    "morgan": "^1.10.0",
     "slug": "^5.1.0",
     "slugify": "^1.5.3",
     "video-thumbnail-generator": "^1.1.3"

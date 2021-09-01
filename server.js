@@ -1,6 +1,7 @@
 const express = require('express')
 const MongoStore = require('connect-mongo')
 const app = express()
+const morgan = require('morgan')
 
 const mongoose = require('mongoose')
 
@@ -29,14 +30,7 @@ app.use(expressSession({
 
 // logging middleware
 
-app.use( (req, res, next) => {
-    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    var method = req.method;
-    var url = req.url;
-
-    console.log("IP " + ip + " " + method + " " + url);
-    next();
-});
+app.use(morgan('combined'));
 
 global.loggedIn = null;
 
