@@ -5,7 +5,11 @@ const bcrypt = require('bcrypt')
 
 const UserSchema = new Schema({
     email: String,
-    pwd: String
+    pwd: String,
+    dateJoined: {
+        type: Date,
+        default: new Date()
+    }
 });
 
 UserSchema.pre('save', function(next) {
