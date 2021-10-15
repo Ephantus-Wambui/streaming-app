@@ -3,6 +3,17 @@ body {
     color: grey;
 }
 
+.thumb-container {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+}
+
+.thumb-container a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 p a {
     height: 50px;
     text-decoration: none;
