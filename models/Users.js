@@ -5,9 +5,30 @@ const slugify = require('slugify');
 const bcrypt = require('bcrypt')
 
 const UserSchema = new Schema({
-    email: String,
-    fullname: String,
-    pwd: String,
+    email: {
+        type: String,
+        required: true,
+        unique: true
+      },
+    fullname: {
+        type: String,
+        required: true,
+        unique: true
+      },
+    gender: {
+      type: String,
+      required: true
+    },
+    pwd: {
+        type: String,
+        required: true,
+        unique: true
+      },
+      slug: {
+        type: String,
+        required: true,
+        unique: true
+      },
     dateJoined: {
         type: Date,
         default: new Date()

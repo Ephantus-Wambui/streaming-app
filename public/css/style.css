@@ -6,7 +6,7 @@ body {
 .thumb-container {
     display: flex;
     flex-direction: column;
-    width: 20vw;
+    width: 90vw;
 }
 
 .thumb-container a {
@@ -55,7 +55,10 @@ form {
     }
     video {
         width: 100%;
-	height: 100%;
+	    height: 100%;
         aspect-ratio: 16/9;
+    }
+    .video p {
+        font-size: 1em;
     }
 }
