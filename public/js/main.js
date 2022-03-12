@@ -5,3 +5,8 @@ if (navigator.onLine) {
         alert("Please connect to internet!")
     )
 }
+
+function Darkmode () {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+}
