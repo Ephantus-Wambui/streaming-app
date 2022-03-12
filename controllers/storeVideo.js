@@ -7,7 +7,8 @@ module.exports = async (req, res) => {
     async (error) => {
       await Youtube.create({
         ...req.body,
-        video: "/videos/" + video.name
+        video: "/videos/" + video.name,
+        userid: req.session.userId
       });
       res.redirect("/");
     }

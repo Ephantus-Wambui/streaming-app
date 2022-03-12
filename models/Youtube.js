@@ -8,6 +8,11 @@ const YoutubeSchema = new Schema({
     type: Date,
     default: new Date(),
   },
+  userid: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
   video: String,
   slug: {
     type: String,
