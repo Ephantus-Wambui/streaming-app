@@ -6,7 +6,7 @@ if (navigator.onLine) {
     )
 }
 
-function Darkmode () {
+function Darkmode (x) {
     var element = document.body;
     element.classList.toggle("dark-mode");
 }
