@@ -25,6 +25,7 @@ p a {
 }
 
 .container-playervideo {
+    margin-top: 20px;
     display: flex;
     justify-content: space-around;
 }
@@ -42,10 +43,12 @@ video {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    float: left;
 }
 
 .container-overview {
     width: 49%;
+    float: right;
 }
 
 .container-overview p a {
@@ -71,11 +74,6 @@ form {
     h1, p {
         font-size: 1rem;
     }
-    .container-playervideo {
-        display: flex;
-        justify-content: space-around;
-        flex-direction: column;
-    }
     .video {
         width: 100%;
     }
@@ -86,5 +84,8 @@ form {
     }
     .video p {
         font-size: 1em;
+    }
+    .container-overview {
+        width: 100vw;
     }
 }
