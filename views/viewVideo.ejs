@@ -9,22 +9,32 @@
 
       <main>
 
-        <div class="container video">
+        <div class="container-playervideo">
 
-          <video controls autoplay>
-            <source src="<%= yoUtube.video %>" type="video/mp4">
-          </video>
+          <div class="container video">
 
-          <h1><%= yoUtube.title %></h1>
-          <p><%= yoUtube.datePosted %></p>
-          <p>Posted by <%= yoUtube.userid.fullname %></p>
+            <video controls autoplay>
+              <source src="<%= yoUtube.video %>" type="video/mp4">
+            </video>
 
-          <% for (var i = 0; i < youtube.length; i++) {%>
+            <h1><%= yoUtube.title %></h1>
+            <p>Posted on <%= yoUtube.datePosted.toDateString() %> by <%= yoUtube.userid.fullname %></p>
 
-            <a href="/<%= youtube[i].slug %>"><%= youtube[i].title %></a>
+          </div>
+
+          <div class="container-overview">
+
+            <% for (var i = 0; i < youtube.length; i++) {%>
+
+              <p>
+
+                <a href="/<%= youtube[i].slug %>"><%= youtube[i].title %></a>
+
+              </p>
 
           <% } %>
 
+          </div>
 
         </div>
 

@@ -24,18 +24,32 @@ p a {
     color: white;
 }
 
+.container-playervideo {
+    display: flex;
+    justify-content: space-around;
+}
+
 video {
     aspect-ratio: 16/9;
-    width: 70%;
+    width: 100%;
     box-sizing: border-box;
     border-radius: 10px;
 }
 
 .video {
+    width: 49%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.container-overview {
+    width: 49%;
+}
+
+.container-overview p a {
+    color: blue;
 }
 
 .pageNotFound img {
@@ -56,6 +70,14 @@ form {
 @media only screen and (max-width: 500px) {
     h1, p {
         font-size: 1rem;
+    }
+    .container-playervideo {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    .video {
+        width: 100%;
     }
     video {
         width: 100%;
