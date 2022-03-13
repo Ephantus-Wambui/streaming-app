@@ -10,14 +10,21 @@
       <main>
 
         <div class="container video">
-        
+
           <video controls autoplay>
-            <source src="<%= youtube.video %>" type="video/mp4">
+            <source src="<%= yoUtube.video %>" type="video/mp4">
           </video>
 
-          <h1><%= youtube.title %></h1>
-          <p><%= youtube.datePosted %></p>
-          <p>Posted by <%= youtube.userid.fullname %></p>
+          <h1><%= yoUtube.title %></h1>
+          <p><%= yoUtube.datePosted %></p>
+          <p>Posted by <%= yoUtube.userid.fullname %></p>
+
+          <% for (var i = 0; i < youtube.length; i++) {%>
+
+            <a href="/<%= youtube[i].slug %>"><%= youtube[i].title %></a>
+
+          <% } %>
+
 
         </div>
 

@@ -3,6 +3,10 @@
     color: grey;
 }
 
+a {
+    text-decoration: none;
+}
+
 .thumb-container {
     display: flex;
     flex-direction: column;
