@@ -51,18 +51,20 @@ const loginUserController = require('./controllers/loginUser')
 const authMiddleware = require('./middleware/authMiddleware')
 const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware')
 const logoutController = require('./controllers/logout')
+const storeCommentController = require("./controllers/storeComment")
 
 app.get('/', homePageController)
 app.post('/search', searchController)
 app.get('/uploadVideo', authMiddleware, uploadVideoController)
 app.post('/post/video', authMiddleware, storeVideoController)
-app.get('/:id/:slug', getVideoController)
+app.get('/:slug', getVideoController)
 app.get('/auth/signUp', redirectIfAuthenticatedMiddleware, signUpController)
 app.post('/user/signup', redirectIfAuthenticatedMiddleware, storeUserController)
 app.get('/auth/login', redirectIfAuthenticatedMiddleware, loginController)
 app.post('/user/login', redirectIfAuthenticatedMiddleware, loginUserController)
 app.get('/auth/logout', logoutController)
 app.use((req, res) => res.render('notFound'))
+app.post("/post/comment", authMiddleware, storeCommentController)
 
 const PORT = process.env.PORT || 3000
 
