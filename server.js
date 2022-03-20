@@ -1,11 +1,23 @@
+// dotenv is used to load environment variables from .env file
+
+require('dotenv').config()
+
 const express = require('express')
 const MongoStore = require('connect-mongo')
 const app = express()
 const morgan = require('morgan')
 
+// mongoose used for connection to mongodb database using mongoose module
+
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost/youtubeClone', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+mongoose.connect(process.env.DATABASE_URL)
+
+const db = mongoose.connection
+
+db.on('error', (error) => console.error(error))
+
+db.once('open', () => console.log('Connected to Database'))
 
 const ejs = require('ejs')
 app.set('view engine', 'ejs')
@@ -66,7 +78,7 @@ app.get('/auth/logout', logoutController)
 app.use((req, res) => res.render('notFound'))
 app.post("/post/comment", authMiddleware, storeCommentController)
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT
 
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`)
