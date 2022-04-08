@@ -7,6 +7,17 @@ const MongoStore = require('connect-mongo')
 const app = express()
 const morgan = require('morgan')
 
+// Importing the fs and https modules -------------- STEP 1
+const https = require("https");
+const fs = require("fs");
+
+// Read the certificate and the private key for the https server options 
+// ------------------- STEP 2
+const options = {
+    key: fs.readFileSync("./config/cert.key"),
+    cert: fs.readFileSync("./config/cert.crt"),
+};
+
 // mongoose used for connection to mongodb database using mongoose module
 
 const mongoose = require('mongoose')
@@ -63,7 +74,6 @@ const loginUserController = require('./controllers/loginUser')
 const authMiddleware = require('./middleware/authMiddleware')
 const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware')
 const logoutController = require('./controllers/logout')
-const storeCommentController = require("./controllers/storeComment")
 
 app.get('/', homePageController)
 app.post('/search', searchController)
@@ -76,10 +86,9 @@ app.get('/auth/login', redirectIfAuthenticatedMiddleware, loginController)
 app.post('/user/login', redirectIfAuthenticatedMiddleware, loginUserController)
 app.get('/auth/logout', logoutController)
 app.use((req, res) => res.render('notFound'))
-app.post("/post/comment", authMiddleware, storeCommentController)
 
-const PORT = process.env.PORT
-
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`)
-})
+// Create the https server by initializing it with 'options'
+// -------------------- STEP 3
+https.createServer(options, app).listen(process.env.PORT, () => {
+    console.log(`HTTPS server started on port ${process.env.PORT}`);
+});
