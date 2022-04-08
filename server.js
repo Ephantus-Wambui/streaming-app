@@ -37,7 +37,7 @@ app.use(expressSession({
     proxy: true,
     resave: true,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: 'mongodb://localhost/youtubeClone' })
+    store: MongoStore.create({ mongoUrl: process.env.DATABASE_URL })
 }))
 
 // logging middleware
