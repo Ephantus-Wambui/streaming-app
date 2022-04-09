@@ -3,7 +3,10 @@ const slugify = require('slugify')
 const Schema = mongoose.Schema;
 
 const YoutubeSchema = new Schema({
-  title: String,
+  title: {
+    type: String,
+    required: true
+  },
   datePosted: {
     type: Date,
     default: new Date(),
@@ -13,7 +16,14 @@ const YoutubeSchema = new Schema({
     ref: 'User',
     required: true
   },
-  video: String,
+  video: {
+    type: String,
+    required: true
+  },
+  category: {
+    type: String,
+    required: true
+  },
   slug: {
     type: String,
     required: true,
