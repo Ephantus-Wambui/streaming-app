@@ -38,7 +38,7 @@ video {
 }
 
 .video {
-    width: 49%;
+    width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +47,7 @@ video {
 }
 
 .container-overview {
-    width: 49%;
+    width: 35%;
     float: right;
 }
 
