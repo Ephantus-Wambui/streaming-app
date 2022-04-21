@@ -35,3 +35,21 @@ document.body.classList.add(localStorage.getItem("darkmode"));
         }, false)
     })
 })()
+
+function fnBrowserDetect(){
+
+    let userAgent = navigator.userAgent;
+    let browserName;
+    
+    if(userAgent.match(/firefox|fxios/i)){
+        browserName = "firefox";
+        alert("Please use chromium based browser")
+    } else if(userAgent.match(/edg/i)){
+        browserName = "edge";
+        alert("Please use chromium based browser")
+    }else{
+        browserName="No browser detection";
+    }
+}
+
+fnBrowserDetect()
