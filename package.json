@@ -1,7 +1,7 @@
 {
-  "name": "youtube-clone",
+  "name": "streaming-app",
   "version": "1.0.0",
-  "description": "Youtube clone",
+  "description": "Streaming App",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
