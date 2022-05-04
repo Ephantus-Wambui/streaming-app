@@ -1,4 +1,4 @@
-const StreamingApp = require('../models/StreamingApp')
+const StreamingApp = require('../models/streamingApp')
 
 module.exports = async (req, res) => {
     const streamingapp = await StreamingApp.findOne({ slug: req.params.slug }).populate('userid')
