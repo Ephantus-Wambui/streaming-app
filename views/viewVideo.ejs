@@ -12,21 +12,21 @@
           <div class="container video">
 
             <video controls autoplay>
-              <source src="<%= yoUtube.video %>" type="video/mp4">
+              <source src="<%= streamingapp.video %>" type="video/mp4">
             </video>
 
-            <h1><%= yoUtube.title %></h1>
-            <p>Posted on <%= yoUtube.datePosted.toDateString() %> by <%= yoUtube.userid.fullname %></p>
+            <h1><%= streamingapp.title %></h1>
+            <p>Posted on <%= streamingapp.datePosted.toDateString() %> by <%= streamingapp.userid.fullname %></p>
 
           </div>
 
           <div class="container-overview" style="overflow-y: scroll; height:400px;">
 
-            <% for (var i = 0; i < youtube.length; i++) {%>
+            <% for (var i = 0; i < streamingApp.length; i++) {%>
 
               <p>
 
-                <a href="/<%= youtube[i].slug %>"><%= youtube[i].title %></a>
+                <a href="/<%= streamingApp[i].slug %>"><%= streamingApp[i].title %></a>
 
               </p>
 

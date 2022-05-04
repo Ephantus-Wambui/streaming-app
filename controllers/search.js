@@ -1,8 +1,8 @@
-const Youtube = require('../models/Youtube')
+const StreamingApp = require('../models/streamingApp')
 
 module.exports = async (req, res) => {
     var inp = document.getElementById("inp").value;
-    const youtube = await Youtube.find({inp}, (error, youtube)=>{
-        console.log(error, youtube)
+    const StreamingApp = await StreamingApp.find({inp}, (error, streamingApp)=>{
+        console.log(error, streamingApp)
     })
 }
