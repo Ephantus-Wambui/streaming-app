@@ -1,8 +1,8 @@
-const Youtube = require('../models/Youtube.js');
+const StreamingApp = require('../models/streamingApp');
 
 module.exports = async (req,res)=>{
-    const youtube = await Youtube.find().sort({ datePosted: -1 })
+    const streamingApp = await StreamingApp.find().sort({ datePosted: -1 })
     res.render('index', {
-        youtube
+        streamingApp
     })
 }
