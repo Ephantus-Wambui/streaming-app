@@ -14,8 +14,8 @@ const fs = require("fs");
 // Read the certificate and the private key for the https server options 
 // ------------------- STEP 2
 const options = {
-    key: fs.readFileSync("./config/server.key"),
-    cert: fs.readFileSync("./config/server.crt"),
+    key: fs.readFileSync("./config/cert.key"),
+    cert: fs.readFileSync("./config/cert.crt"),
 };
 
 // mongoose used for connection to mongodb database using mongoose module
