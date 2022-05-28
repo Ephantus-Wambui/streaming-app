@@ -8,9 +8,17 @@ a {
 }
 
 .thumb-container {
-    display: flex;
-    flex-direction: column;
-    width: 90vw;
+    width: 30vw;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.thumb-container:nth-child(1n) {
+    float: left;
+}
+
+.thumb-container:nth-child(2n) {
+    float: right;
 }
 
 .thumb-container a {
@@ -51,6 +59,10 @@ video {
     float: right;
 }
 
+.container-overview p {
+    width: 25vw;
+}
+
 .container-overview p a {
     color: blue;
 }
@@ -73,6 +85,18 @@ form {
 @media only screen and (max-width: 500px) {
     h1, p {
         font-size: 1rem;
+    }
+    .thumb-container {
+        width: 90vw;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    .thumb-container:nth-child(1n) {
+        float: none;
+    }
+    
+    .thumb-container:nth-child(2n) {
+        float: none;
     }
     .video {
         width: 100%;
